@@ -1042,7 +1042,118 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
-    <script src="main.js"></script>
-    <script src="nav.js"></script>
+    <!-- <script src="/main.js"></script>
+    <script src="/nav.js"></script> -->
+    <script>
+var slider = tns({
+  container: ".my-slider",
+  items: 4,
+  slideBy: "page",
+  autoplay: true,
+  mouseDrag: true,
+  gutter: 20,
+  edgePadding: 20,
+  autoplayButtonOutput: false,
+  controlsPosition: "bottom",
+  navPosition: "bottom",
+  responsive: {
+    0: {
+      items: 1,
+    },
+    640: {
+      items: 2,
+    },
+    768: {
+      items: 2,
+    },
+    1024: {
+      items: 3,
+    },
+    1280: {
+      items: 4,
+    },
+  },
+});
+
+var slider = tns({
+  container: ".my-slider2",
+  items: 3,
+  slideBy: "page",
+  autoplay: true,
+  mouseDrag: true,
+  gutter: 50,
+  edgePadding: 20,
+  autoplayButtonOutput: false,
+  controlsPosition: "bottom",
+  navPosition: "bottom",
+  responsive: {
+    0: {
+      items: 1,
+    },
+    640: {
+      items: 2,
+    },
+    768: {
+      items: 2,
+    },
+    1024: {
+      items: 3,
+    },
+    1280: {
+      items: 3,
+    },
+  },
+});
+
+const arr = {
+  name: "faisal",
+  array: ["flower", "bick", "nice"],
+  fuc: function () {
+    this.array.forEach((a) => {
+      console.log(`${this.name} loves ${a}`);
+    });
+  },
+};
+arr.fuc();
+
+// nav
+
+// navbar active
+
+const sections = document.querySelectorAll("section[id]");
+
+window.addEventListener("scroll", navHighlighter);
+
+function navHighlighter() {
+  let scrollY = window.pageYOffset;
+
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 50;
+    sectionId = current.getAttribute("id");
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document
+        .querySelector(".navigation a[href*=" + sectionId + "]")
+        .classList.add("active");
+    } else {
+      document
+        .querySelector(".navigation a[href*=" + sectionId + "]")
+        .classList.remove("active");
+    }
+  });
+};
+
+const navbar = document.querySelector('.nav-fixed');
+window.onscroll = () => {
+    if (window.scrollY >= 110) {
+        navbar.classList.add('nav-active');
+    } else {
+        navbar.classList.remove('nav-active');
+    }
+};
+
+
+    </script>
   </body>
 </html>
